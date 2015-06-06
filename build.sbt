@@ -10,13 +10,9 @@ crossScalaVersions := Seq("2.10.5", "2.11.6")
 
 publishMavenStyle := true
 
-val commonSettings = Seq(
-    javacOptions ++= Seq("-target", "1.8", "-source", "1.8"),
-    parallelExecution := true
-)
+javacOptions ++= Seq("-target", "1.8", "-source", "1.8")
 
 lazy val main = (project in file("."))
-                .settings(commonSettings:_*)
                 .enablePlugins(PlayScala)
 
 libraryDependencies += "com.wordnik" %% "swagger-core" % "1.3.12"
