@@ -32,8 +32,11 @@ import scala.concurrent.Future
 
 class SwaggerModule extends Module {
 
-  override def bindings(environment: Environment, configuration: Configuration): Seq[Binding[_]] =
-    Seq(bind(classOf[Swagger]).toSelf)
+  override def bindings(environment: Environment, configuration: Configuration): Seq[Binding[_]] = 
+  Seq(
+     bind(classOf[Swagger]).toSelf,
+     bind(classOf[ApiHelpController]).toSelf
+  )
 
   class Swagger extends Provider[Unit] {
 
