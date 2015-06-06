@@ -44,41 +44,19 @@ class SwaggerSetup extends Provider[Unit] {
       case Some(value) => value
     }
 
-    val basePath = config.getString("swagger.api.basepath") match {
-      case Some(path) if !path.isEmpty => {
-        //ensure basepath is a valid URL, else throw an exception
-        try {
-          val basePathUrl = new URL(path)
-          logger.info(s"Basepath configured as:$path")
-          path
-        } catch {
-          case ex: Exception =>
-            logger.error(s"Misconfiguration - basepath not a valid URL:$path. Swagger abandoning initialisation")
-            throw ex
-        }
-      }
-
-      case _ => "http://localhost:9000"
-    }
+    val basePath = config.getString("swagger.api.basepath")
+        .filter(path => !path.isEmpty)
+        .map(getPathUrl(_))
+        .getOrElse("http://localhost:9000")
 
     SwaggerContext.registerClassLoader(app.classloader)
     ConfigFactory.config.setApiVersion(apiVersion)
-    ConfigFactory.config.setBasePath(basePath)
     ScannerFactory.setScanner(new PlayApiScanner(Option(router)))
     ClassReaders.reader = Some(new PlayApiReader(Option(router)))
 
-    app.configuration.getString("swagger.filter") match {
-      case Some(filter) if !filter.isEmpty => {
-        try {
-          FilterFactory.filter = SwaggerContext.loadClass(filter).newInstance.asInstanceOf[SwaggerSpecFilter]
-          logger.info(s"Setting swagger.filter to $filter")
-        }
-        catch {
-          case ex: Exception =>logger.error(s"Failed to load filter:$filter", ex)
-        }
-      }
-      case _ =>
-    }
+    app.configuration.getString("swagger.filter")
+      .filter(p => !p.isEmpty)
+      .foreach(loadFilter(_))
 
     val docRoot = ""
     ApiListingCache.listing(docRoot)
@@ -89,6 +67,27 @@ class SwaggerSetup extends Provider[Unit] {
   def onStop() {
     ApiListingCache.cache = None
     logger.info("Swagger - stopped.")
+  }
+
+  def loadFilter(filterClass: String): Unit = {
+    try {
+      FilterFactory.filter = SwaggerContext.loadClass(filterClass).newInstance.asInstanceOf[SwaggerSpecFilter]
+      logger.info(s"Setting swagger.filter to $filterClass")
+    } catch {
+      case ex: Exception =>logger.error(s"Failed to load filter:$filterClass", ex)
+    }
+  }
+
+  def getPathUrl(path: String): String = {
+    try {
+      val basePathUrl = new URL(path)
+      logger.info(s"Basepath configured as:$path")
+      path
+    } catch {
+      case ex: Exception =>
+        logger.error(s"Misconfiguration - basepath not a valid URL:$path. Swagger abandoning initialisation!")
+        throw ex
+    }
   }
 
 }
