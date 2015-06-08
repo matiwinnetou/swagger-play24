@@ -15,7 +15,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import scala.concurrent.Future
 
-class SwaggerSetupProvider extends Provider[SwaggerSetup] {
+class SwaggerPluginProvider extends Provider[SwaggerPlugin] {
 
   val logger = Logger("swagger")
 
@@ -28,7 +28,7 @@ class SwaggerSetupProvider extends Provider[SwaggerSetup] {
   @Inject
   private var lifecycle: ApplicationLifecycle = _
 
-  override def get(): SwaggerSetup = {
+  override def get(): SwaggerPlugin = {
     lifecycle.addStopHook(() => Future {
       onStop()
     })
@@ -36,7 +36,7 @@ class SwaggerSetupProvider extends Provider[SwaggerSetup] {
     onStart()
   }
 
-  def onStart(): SwaggerSetup = {
+  def onStart(): SwaggerPlugin = {
     val config = app.configuration
     logger.info("Swagger - starting initialisation...")
 
@@ -63,7 +63,7 @@ class SwaggerSetupProvider extends Provider[SwaggerSetup] {
     ApiListingCache.listing(docRoot)
 
     logger.info("Swagger - initialization done.")
-    new SwaggerSetup
+    new SwaggerPlugin()
   }
 
   def onStop() {
