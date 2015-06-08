@@ -50,5 +50,10 @@ Library automatically instantiates two classes (eagerly) upon startup:
 - SwaggerPlugin via SwaggerPluginProvider
 - ApiHelpController
 
+# ChangeLog
+- 1.0 + 1.1 + 1.2 - initial releases for scala 2.10
+- 1.3 - a binary release for scala 2.10 and scala 2.11
+- 1.4 - a bug fix - by accident apiBasePath was not set
+
 # Disable
 - just remove the library from classpath - it will then not register and instantiate any classes
