@@ -12,7 +12,7 @@ Library version | Play Version  | Swagger Spec version |  Scala Version |
 add to your build.sbt
 
 ```
-libraryDependencies += "pl.matisoft" %% "swagger-play24" % "1.1"
+libraryDependencies += "pl.matisoft" %% "swagger-play24" % "1.3"
 ```
 
 and then
