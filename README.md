@@ -39,7 +39,7 @@ Once library is hooked up it is possible to add swagger annotation to classes an
 - library is available for Scala 2.10 and Scala 2.11
 
 # Java Support
-- library is supported for Play 2.4 Java but not yet tested... :)
+- library is supported for Play Java but not yet tested... :)
 
 # Notes
 Library automatically instantiates two classes (eagerly) upon startup:
