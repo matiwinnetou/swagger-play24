@@ -20,7 +20,7 @@ and then
 add as an example to your routes file:
 
 ```
-GET     /api-docs                                         @pl.matisoft.swagger.ApiHelpController.getResources
+GET     /api-docs   @pl.matisoft.swagger.ApiHelpController.getResources
 ```
 
 application.conf:
