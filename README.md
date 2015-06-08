@@ -1,12 +1,12 @@
 # swagger-play24
-This is a 'direct' move of Swagger support for Play (2.3) to (2.4).
+This is a 'direct' move of Swagger support for Play (2.3) to (2.4)
 This project does not try to be too clever and has a very few changes comparing to original code
 
 # Spec
 This library is based on Swagger Spec 1.2
 
 # Installation
-to your build.sbt add
+add to your build.sbt
 
 ```
 libraryDependencies += "pl.matisoft" %% "swagger-play24" % "1.0"
@@ -32,5 +32,10 @@ swagger.api.basepath (String) - base url | default: "http://localhost:9000"
 swagger.filter (String) - classname of swagger filter | default: empty
 ```
 
+# Notes
+Library automatically instantiates two classes (eagerly) upon startup:
+- SwaggerPlugin via SwaggerPluginProvider
+- ApiHelpController
+
 # Disable
-- just remove the library from classpath or 
+- just remove the library from classpath - it will then not register and instantiate any classes
