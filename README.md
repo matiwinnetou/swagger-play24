@@ -2,14 +2,15 @@
 This is a 'direct' move of Swagger support for Play (2.3) to (2.4)
 This project does not try to be too clever and has a very few changes comparing to original code.
 
-# Spec
-This library is based on Swagger Spec 1.2
+Library version | Play Version  | Swagger Spec version | 
+--------------- | ------------- | ---------------------
+    1.1         |   2.4         |          1.2 
 
 # Installation
 add to your build.sbt
 
 ```
-libraryDependencies += "pl.matisoft" %% "swagger-play24" % "1.0"
+libraryDependencies += "pl.matisoft" %% "swagger-play24" % "1.1"
 ```
 
 and then
