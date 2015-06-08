@@ -1,6 +1,6 @@
 # swagger-play24
 This is a 'direct' move of Swagger support for Play (2.3) to (2.4)
-This project does not try to be too clever and has a very few changes comparing to original code
+This project does not try to be too clever and has a very few changes comparing to original code.
 
 # Spec
 This library is based on Swagger Spec 1.2
