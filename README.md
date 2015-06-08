@@ -33,7 +33,7 @@ swagger.filter (String) - classname of swagger filter | default: empty
 ```
 
 # Usage
-Once library is hooked up it is possible to add swagger annotation to classes and methods. The exact documentation and example is available on a swagger page.
+Once library is hooked up it is possible to add swagger annotation to classes and methods. The exact documentation and example is available on a swagger web page.
 
 # Scala Support
 - library is available for Scala 2.10 and Scala 2.11
