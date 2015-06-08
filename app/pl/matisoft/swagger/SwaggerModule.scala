@@ -21,8 +21,7 @@ import play.api.{Configuration, Environment}
 class SwaggerModule extends Module {
 
   override def bindings(environment: Environment, configuration: Configuration): Seq[Binding[_]] =  Seq(
-     //hack now - think about something smarter
-     bind[Unit].qualifiedWith("swagger").toProvider[SwaggerSetup].eagerly(),
+     bind[SwaggerSetup].toProvider[SwaggerSetupProvider].eagerly(),
      bind[ApiHelpController].toSelf.eagerly()
   )
 
