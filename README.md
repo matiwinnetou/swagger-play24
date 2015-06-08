@@ -2,9 +2,11 @@
 This is a 'direct' move of Swagger support for Play (2.3) to (2.4)
 This project does not try to be too clever and has a very few changes comparing to original code.
 
-Library version | Play Version  | Swagger Spec version | 
---------------- | ------------- | ---------------------
-    1.1         |   2.4         |          1.2 
+Library version | Play Version  | Swagger Spec version |  Scala Version |
+--------------- | ------------- | -------------------- | -------------- |
+    1.1         |   2.4         |          1.2         | 2.10
+    1.2         |   2.4         |          1.2         | 2.10  
+    1.3         |   2.4         |          1.2         | 2.10, 2.11
 
 # Installation
 add to your build.sbt
