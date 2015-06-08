@@ -32,6 +32,12 @@ swagger.api.basepath (String) - base url | default: "http://localhost:9000"
 swagger.filter (String) - classname of swagger filter | default: empty
 ```
 
+# Scala Support
+- library is available for Scala 2.10 and Scala 2.11
+
+# Java Support
+- library is supported for Play 2.4 Java but not yet tested... :)
+
 # Notes
 Library automatically instantiates two classes (eagerly) upon startup:
 - SwaggerPlugin via SwaggerPluginProvider
