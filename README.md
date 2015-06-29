@@ -8,6 +8,9 @@ Library version | Play Version  | Swagger Spec version |  Scala Version |
     1.2         |   2.4         |          1.2         | 2.10  
     1.3         |   2.4         |          1.2         | 2.10, 2.11
     1.4         |   2.4         |          1.2         | 2.10, 2.11
+    
+**Note:** swagger-core 1.5 is not yet supported, so annotations from `io.swagger.annotations._`
+will be ignored! Use `com.wordnik.swagger.annotations._`instead.
 
 # Installation
 add to your build.sbt
