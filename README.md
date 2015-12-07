@@ -1,4 +1,10 @@
 # swagger-play24
+
+# WARNING
+Project is most likely obsoleted by: [https://github.com/swagger-api/swagger-play](https://github.com/swagger-api/swagger-play)
+
+===
+
 This is a 'direct' move of Swagger support for Play (2.3) to (2.4)
 This project does not try to be too clever and has a very few changes comparing to original code.
 
